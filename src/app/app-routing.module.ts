@@ -36,7 +36,14 @@ const routes: Routes = [
     path: 'usuarios',
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosPageModule)
   },
-
+  {
+    path: 'registrar',
+    loadChildren: () => import('./login/register/register.module').then(m => m.RegisterPageModule)
+  },
+  {
+    path: 'verified',
+    loadChildren: () => import('./login/verifiedemail/verifiedemail.module').then(m => m.VerifiedemailPageModule)
+  }
 ];
 
 @NgModule({

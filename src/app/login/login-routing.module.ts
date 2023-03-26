@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: LoginPage
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'verifiedemail',
+    loadChildren: () => import('./verifiedemail/verifiedemail.module').then( m => m.VerifiedemailPageModule)
   }
 ];
 

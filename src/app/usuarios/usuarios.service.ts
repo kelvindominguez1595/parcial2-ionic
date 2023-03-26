@@ -40,11 +40,16 @@ export class UsuariosService {
 
   // para verficiar que el correo existe
   verificationEmail() {
+    // old
     return this.ngFireAuth.currentUser.then((user: any) => {
       return user.sendEmailVerification().then(() => {
         this.router.navigate(['/login']);
       })
     })
+    // return this.ngFireAuth.auth.currentUser.sendEmailVerification()
+    //   .then(() => {
+    //     this.router.navigate(['verify-email']);
+    //   })
   }
 
   passwordRecovery(passwordResetEmail: string) {
@@ -102,6 +107,12 @@ export class UsuariosService {
       localStorage.removeItem('user');
       this.router.navigate(['/login']);
     })
+  }
+
+  // formatear errores
+  getErrors(err: string) {
+    return err.replace('Firebase: ', '')
+      .replace(/\(auth.*\)\.?/, '');
   }
 
 }
