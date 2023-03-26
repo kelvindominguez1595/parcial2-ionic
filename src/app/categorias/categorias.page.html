@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>categorias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button routerLink="/nuevo">Nuevo Categoria</ion-button>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      Categorias
+    </ion-list-header>
+    <ion-item *ngFor="let categoria of categorias" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="walk-outline"></ion-icon> {{categoria.nombrecategoria}}
+        </h5>
+      </ion-label>
+      <div class="item-note" item-end>
+        <ion-button [routerLink]="['/categorias', categoria.uid]">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="borrarCategoria(categoria.uid!.toString())">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

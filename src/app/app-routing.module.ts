@@ -4,12 +4,33 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'categorias',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./categorias/categorias.module').then(m => m.CategoriasPageModule)
+      },
+      {
+        path: ':categoriaid',
+        loadChildren: () => import('./categorias/editar/editar.module').then(m => m.EditarPageModule)
+      },
+    ]
+  },
+  {
+    path: 'nuevo',
+    loadChildren: () => import('./categorias/nuevo/nuevo.module').then(m => m.NuevoPageModule)
+  },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios/usuarios.module').then( m => m.UsuariosPageModule)
   },
 ];
 
