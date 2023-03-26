@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <form [formGroup]="productosForm" (submit)="formSubmit()">
+      <ion-item>
+        <ion-label position="floating">Producto</ion-label>
+        <ion-input formControlName="nombre" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-input formControlName="description" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Imagen</ion-label>
+        <ion-input formControlName="image" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Categoria</ion-label>
+        <ion-select formControlName="categoria_id" interface="action-sheet" placeholder="Seleccione categoria">
+          <ion-select-option *ngFor="let item of categorias"
+            [value]="item.nombrecategoria">{{item.nombrecategoria}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Cantidad</ion-label>
+        <ion-input formControlName="cantidad" type="number" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Precio</ion-label>
+        <ion-input formControlName="precio" type="text" required></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Crear</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

@@ -43,6 +43,19 @@ const routes: Routes = [
   {
     path: 'verified',
     loadChildren: () => import('./login/verifiedemail/verifiedemail.module').then(m => m.VerifiedemailPageModule)
+  },
+  {
+    path: 'productos',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./productos/productos.module').then(m => m.ProductosPageModule)
+      },
+      {
+        path: ':productoid',
+        loadChildren: () => import('./productos/editar/editar.module').then(m => m.EditarPageModule)
+      }
+    ]
   }
 ];
 
