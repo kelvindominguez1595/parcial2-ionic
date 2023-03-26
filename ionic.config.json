@@ -1,0 +1,7 @@
+{
+  "name": "crudappfirebase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
